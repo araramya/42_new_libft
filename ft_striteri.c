@@ -1,12 +1,25 @@
-void ft_striteri(char *s, void (*f)(unsigned int, char*)) {
-    unsigned int i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaramyan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 17:20:27 by aaramyan          #+#    #+#             */
+/*   Updated: 2025/01/28 18:07:07 by aaramyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    if (!s || !f) // Check if the string or function is NULL
-        return;
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
-    i = 0;
-    while (s[i]) { // Iterate through the string
-        f(i, &s[i]); // Apply the function to the current character
-        i++;
-    }
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaramyan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 16:43:28 by aaramyan          #+#    #+#             */
+/*   Updated: 2025/01/28 16:45:14 by aaramyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static	int	ft_is_in_str(const char *str, char c)
@@ -11,7 +23,7 @@ static	int	ft_is_in_str(const char *str, char c)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
@@ -25,7 +37,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (end > start && ft_is_in_str(set, s1[end - 1]))
 		end--;
-	if (!(new = malloc(sizeof(char) * (end - start + 1))))
+	new = malloc(sizeof(char) * (end - start + 1));
+	if (!new)
 		return (NULL);
 	while (start < end)
 	{

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaramyan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 16:45:31 by aaramyan          #+#    #+#             */
+/*   Updated: 2025/01/28 17:16:06 by aaramyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_word_count(char const *s, char c)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -18,8 +30,8 @@ static int	ft_word_count(char const *s, char c)
 
 static int	ft_word_length(char const *s, char c)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	i = 0;
 	len = 0;
@@ -33,9 +45,9 @@ static int	ft_word_length(char const *s, char c)
 
 static char	**f(char const *s, char c, char **result, int words_count)
 {
-	int i;
-	int j;
-	int w_len;
+	int	i;
+	int	j;
+	int	w_len;
 
 	while (*s == c)
 		s++;
@@ -46,7 +58,8 @@ static char	**f(char const *s, char c, char **result, int words_count)
 			s++;
 		j = 0;
 		w_len = ft_word_length(s, c);
-		if (!(result[i] = (char *)malloc(sizeof(char) * (w_len + 1))))
+		result[i] = (char *)malloc(sizeof(char) * (w_len + 1));
+		if (!result[i])
 			return (NULL);
 		while (j < w_len)
 		{
@@ -60,7 +73,7 @@ static char	**f(char const *s, char c, char **result, int words_count)
 	return (result);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		wcount;
@@ -68,7 +81,8 @@ char		**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	wcount = ft_word_count(s, c);
-	if (!(result = (char **)malloc(sizeof(char *) * (wcount + 1))))
+	result = (char **)malloc(sizeof(char *) * (wcount + 1));
+	if (!result)
 		return (NULL);
 	result = f(s, c, result, wcount);
 	return (result);

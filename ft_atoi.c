@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaramyan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/28 16:01:09 by aaramyan          #+#    #+#             */
+/*   Updated: 2025/01/28 16:02:18 by aaramyan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int		ft_is_space(char c)
+static int	ft_is_space(char c)
 {
-	if (c == '\n' || c == '\t' || c == '\v' ||
-		c == '\r' || c == '\f' || c == ' ')
+	if (c == '\n' || c == '\t' || c == '\v'
+		|| c == '\r' || c == '\f' || c == ' ')
 		return (1);
 	return (0);
 }
 
-int				ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int i;
-	int sign;
-	int result;
+	int	i;
+	int	sign;
+	int	result;
 
 	i = 0;
 	sign = 1;
