@@ -6,7 +6,7 @@
 /*   By: aaramyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:36:45 by aaramyan          #+#    #+#             */
-/*   Updated: 2025/01/28 17:39:40 by aaramyan         ###   ########.fr       */
+/*   Updated: 2025/02/02 18:19:49 by aaramyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!new_el)
 		{
 			ft_lstclear(&new_lst, del);
+			if (lst->content)
+				free(lst->content);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_lst, new_el);

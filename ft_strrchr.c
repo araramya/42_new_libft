@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaramyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/28 15:30:20 by aaramyan          #+#    #+#             */
-/*   Updated: 2025/02/02 15:25:05 by aaramyan         ###   ########.fr       */
+/*   Created: 2025/02/02 18:09:16 by aaramyan          #+#    #+#             */
+/*   Updated: 2025/02/02 18:09:44 by aaramyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char		*dest_cpy;
-	unsigned char		*src_cpy;
+	char			*string_cpy;
+	unsigned char	c_cpy;
+	int				i;
 
-	if (!dest && !src)
+	i = 0;
+	string_cpy = (char *)s;
+	c_cpy = (unsigned char)c;
+	while (*string_cpy != '\0')
 	{
-		return (NULL);
+		string_cpy++;
+		i++;
 	}
-	dest_cpy = (unsigned char *)dest;
-	src_cpy = (unsigned char *)src;
-	while (n > 0)
+	while (i >= 0)
 	{
-		*(dest_cpy++) = *(src_cpy++);
-		n--;
+		if (*string_cpy == c_cpy)
+			return (string_cpy);
+		i--;
+		string_cpy--;
 	}
-	return (dest);
+	return (NULL);
 }
